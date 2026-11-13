@@ -1,0 +1,48 @@
+#!/bin/bash
+# Agent Faraz - Multiplatform Uninstaller (.run)
+# Works on Windows (Git Bash/WSL/CMD), macOS, and Linux.
+
+echo ""
+echo "=========================================================="
+echo "          Agent Faraz - System Uninstaller"
+echo "=========================================================="
+echo ""
+
+# Confirm
+read -p "Are you sure you want to uninstall Agent Faraz? (y/N): " confirm
+if [[ "$confirm" != "y" && "$confirm" != "Y" && "$confirm" != "yes" ]]; then
+    echo "Uninstallation cancelled."
+    exit 0
+fi
+
+echo ""
+echo "[1/3] Uninstalling python package 'agent-faraz'..."
+if command -v python3 &>/dev/null; then
+    python3 -m pip uninstall -y agent-faraz 2>/dev/null
+elif command -v python &>/dev/null; then
+    python -m pip uninstall -y agent-faraz 2>/dev/null
+else
+    echo "Python not detected in PATH. Skipping pip uninstall."
+fi
+echo "  [OK] Package uninstalled."
+
+echo ""
+echo "[2/3] Cleaning workspace configuration..."
+rm -f .faraz.json 2>/dev/null
+echo "  [OK] Workspace clean."
+
+echo ""
+echo "[3/3] User configuration and chat sessions..."
+read -p "Delete all saved API keys, models, and chat history (~/.agent_faraz)? (y/N): " del_data
+if [[ "$del_data" == "y" || "$del_data" == "Y" || "$del_data" == "yes" ]]; then
+    rm -rf "$HOME/.agent_faraz" 2>/dev/null
+    echo "  [OK] Removed ~/.agent_faraz."
+else
+    echo "  [--] Preserved configuration."
+fi
+
+echo ""
+echo "=========================================================="
+echo "    Agent Faraz has been successfully removed!"
+echo "=========================================================="
+echo ""

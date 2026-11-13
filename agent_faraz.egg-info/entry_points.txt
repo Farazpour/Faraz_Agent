@@ -1,0 +1,3 @@
+[console_scripts]
+agent-faraz = faraz.cli:main
+faraz = faraz.cli:main

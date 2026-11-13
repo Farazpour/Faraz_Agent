@@ -1,0 +1,30 @@
+{
+    "provider":  "groq",
+    "model":  "openai/gpt-oss-120b",
+    "custom_base_url":  null,
+    "api_keys":  {
+                 },
+    "recent_models":  [
+                          {
+                              "provider":  "groq",
+                              "model":  "openai/gpt-oss-120b"
+                          },
+                          {
+                              "provider":  "groq",
+                              "model":  "qwen/qwen3.8-27b"
+                          },
+                          {
+                              "provider":  "ollama",
+                              "model":  "qwen2.5-coder:7b"
+                          }
+                      ],
+    "active_mode":  "chat",
+    "active_chat_id":  null,
+    "auto_approve_commands":  false,
+    "require_confirmation_for_destructive":  true,
+    "command_timeout_seconds":  60,
+    "temperature":  0.2,
+    "max_tokens":  4096,
+    "theme":  "claude",
+    "show_token_usage":  true
+}

@@ -1,0 +1,136 @@
+# ⚡ Agent Faraz V1.0.0
+
+> **Agent Faraz** is an autonomous terminal engineering agent, engineered to run seamlessly with both **Local LLMs (Ollama, LM Studio)** and **Cloud APIs (Groq, OpenAI, Anthropic Claude, DeepSeek, OpenRouter)**.
+
+---
+
+## 🌟 Key Features
+
+- **Terminal-First UX (Claude Code caliber)**:
+  - Rich interactive terminal UI with amber branding, live spinners, markdown formatting, and progress indicators.
+  - Interactive prompt with persistent history, word auto-completion, and multi-line support.
+  - Unified visual diff viewer highlighting additions in green and deletions in red.
+- **Dual Working Modes**:
+  - 💬 **Chat Mode (`Faraz:`)**: Default on startup. Fast, responsive interactive pair-programming and Q&A.
+  - 🎯 **Agent Mode (`Agent Faraz Agent:`)**: Full autonomous multi-step software engineering loop (Read ➔ Plan ➔ Edit ➔ Test ➔ Verify).
+- **Interactive Model Wizard & Auto-Download**:
+  - Automatically detects models currently installed in Ollama (`qwen2.5-coder:7b`, `gemma4:12b`, etc.).
+  - Prompts to download missing local models via Ollama with live progress streaming.
+  - Seamlessly connects to 100% free cloud models (Groq) or OpenAI/Claude/DeepSeek.
+- **Multi-Session Chat History**:
+  - Save, list, resume, and switch between previous conversations effortlessly (`/chats`, `/chat switch <no>`).
+- **Full Operating System File Access**:
+  - Access, read, and edit files across the whole operating system (e.g. `C:\...`, `~`, or user home directories) with safety confirmation guards (`/file <path>`).
+- **Natively Multilingual**:
+  - Understands and communicates fluently in English, Persian (Farsi), Swedish, and all major languages.
+
+---
+
+## Installation
+
+### macOS Installation (Terminal Command)
+Run this single command in your Terminal:
+
+```bash
+git clone https://github.com/Faraz/Agent-Faraz.git && cd Agent-Faraz && pip install -e .
+```
+
+*Or run the installer directly:*
+```bash
+chmod +x install.sh && ./install.sh
+```
+
+*(Optional) Install Ollama for local models on macOS:*
+```bash
+brew install ollama && ollama serve
+```
+
+---
+
+### 🐧 Linux Installation (Ubuntu, Debian, Fedora, Arch)
+Run this single command in your Linux terminal:
+
+```bash
+git clone https://github.com/Faraz/Agent-Faraz.git && cd Agent-Faraz && pip install -e .
+```
+
+*Or run the installer directly:*
+```bash
+chmod +x install.sh && ./install.sh
+```
+
+*(Optional) Install Ollama for local models on Linux:*
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+---
+
+### 🪟 Windows Installation
+In PowerShell or CMD:
+```cmd
+pip install -e .
+```
+*Or simply double-click the included `install.bat` file!*
+
+---
+
+## 💻 Usage
+
+### Launch Interactive Session
+Simply run:
+
+```bash
+faraz
+```
+
+Agent Faraz opens automatically in **Chat Mode** (`Faraz:`).
+
+### Run in Autonomous Agent Mode
+```bash
+faraz --agent
+# OR execute a direct autonomous task:
+faraz -a "Refactor database queries in db.py and verify syntax"
+```
+
+---
+
+## 🛠️ Slash Commands
+
+Inside the terminal session, use slash commands to control Faraz:
+
+| Command | Description |
+| :--- | :--- |
+| `/help` | Display interactive command guide and shortcuts |
+| `/mode [chat \| agent]` | Toggle between Chat Mode (`Faraz:`) and Autonomous Agent Mode (`Agent Faraz Agent:`) |
+| `/agent [task]` | Launch a dedicated autonomous Agent Mission |
+| `/model` or `/menu` | Open interactive model setup wizard (local Ollama download or Cloud connect) |
+| `/model <number \| name>` | Quick-switch by history number, preset (`P1`-`P6`), or custom name |
+| `/key <api_key>` | Save API key securely with automatic provider detection |
+| `/chats` or `/history` | View table of all past chat sessions |
+| `/chat new [title]` | Start a clean, fresh conversation |
+| `/chat switch <no \| id>` | Switch to a past chat session and restore all context |
+| `/chat delete <no \| id>` | Remove an old conversation from history |
+| `/file <path>` | Manually specify any file on the system (e.g. `C:\...` or `~/notes.txt`) to attach |
+| `/save` | Force-save current settings and active session |
+| `/auto-approve [on \| off]` | Toggle auto-approving terminal commands and file edits |
+| `/providers` | List all supported local & cloud providers |
+| `/clear` | Clear conversation context |
+| `/compact` | Summarize previous context to save token window |
+| `/config` | View active configuration settings |
+| `/tokens` | Display token usage statistics |
+| `/exit`, `/quit` | Gracefully exit Faraz (saves session & config) |
+
+---
+
+## Uninstallation
+
+If you ever wish to completely remove Agent Faraz from your system:
+
+- **Windows:** Double-click or run `uninstall.bat`
+- **macOS & Linux:** Run `./uninstall.run` or `bash uninstall.run`
+
+---
+
+## License
+MIT License. Built with passion for autonomous software engineering.
